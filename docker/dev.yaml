@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo-root-dev-user
+      MONGO_INITDB_ROOT_PASSWORD: mongo-root-dev-pass
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongo-admin-dev-user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mongo-admin-dev-pass
+      ME_CONFIG_MONGODB_URL: mongodb://mongo-root-dev-user:mongo-root-dev-pass@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
