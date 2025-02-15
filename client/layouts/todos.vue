@@ -1,6 +1,6 @@
 <script setup>
 import Header from '@/components/general/Header'
-import Footer from '@/components/general/footer'
+import Footer from '@/components/general/footer/Index.vue'
 import TopItems from '@/components/user/TopItems'
 
 import { useTodoStore } from '@/store/todo'
