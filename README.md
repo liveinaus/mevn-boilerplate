@@ -8,64 +8,16 @@ I have started to create this repo as an admin dashboard. Now, there is a client
 
 Open Source ❤
 
-###  ☝️ .env file in the `server` folder
+You should create a .env.local for development purpose. See the following examples
+####  ☝️ .env file in the `server` folder
+####  ☝️ .env file in the `admin` folder
+####  ☝️ .env file in the `client` folder
 
-You should create a .env file in the server folder.
-
-```
-NODE_ENV = development
-DB_URL = YourMongoDBURL
-API_PREFIX = /api/v1.0.0/
-AUTH_SECRET = YourSecretStringForAPILike-----KvKiA2mMjxGO25Diiibz
-API_PORT = 3000
-
-CLIENT_URL = http://localhost:3001/
-
-NODEMAILER_HOST = YourMailServer
-NODEMAILER_PORT = 465
-NODEMAILER_SECURE = true
-NODEMAILER_SENDERNAME = YourName
-NODEMAILER_USER = YourMailAddress
-NODEMAILER_PASS = YourPassword
-```
-
-###  ☝️ .env file in the `admin` folder
-
-You should create a .env file in the admin folder.
+### 🛠️ How to run?
 
 ```
-VITE_API_ENDPOINT=http://localhost:3000/api/v1.0.0/
-VITE_API_DOMAIN=http://localhost:3000/
+yarn build && yarn start
 ```
-
-###  ☝️ .env file in the `client` folder
-
-You should create a .env file in the `client` folder.
-
-```
-VITE_API_ENDPOINT=http://localhost:3000/api/v1.0.0/
-VITE_API_ENDPOINTHOST=http://localhost:3000/
-```
-
-### 🛠️ How?
-
-- `cd server`
-- `yarn install`
-- `nodemon server.js`
-
-- `cd admin`
-- `yarn install`
-- `yarn dev`
-
-- `cd client`
-- `yarn install`
-- `yarn dev`
-
-#### How can run the server and UI together
-
-`yarn start`
-
-That's all. It will run these scripts => `(cd server; yarn dev;) & (cd admin; yarn dev) & (cd client; yarn dev)` parallelly.
 
 ### How can I support?
 
@@ -75,7 +27,7 @@ That's all. It will run these scripts => `(cd server; yarn dev;) & (cd admin; ya
 
 ### 📰 Blog Post
 
-- https://mustafacagri.medium.com/mevn-stack-boilerplate-vue-3-nuxt-3-express-js-node-js-vuetify-pinia-ad6849ba4ee5
+- TBD
 
 ### 📷 Screenshots
 
@@ -100,4 +52,8 @@ https://github.com/mustafacagri/mevn-boilerplate/assets/7488394/aca14f0a-af96-40
 
 - Sign in / up functionality has been added to the client!
 - A support ticket system has been added to the client!
+
+
+### Thanks
+- mustafacagri - https://github.com/mustafacagri/mevn-boilerplate
 
