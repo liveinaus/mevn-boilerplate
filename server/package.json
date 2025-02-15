@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "nodemon server.js",
+		"clean": "rm -rf node_modules .nuxt .vite",
     "start": "node server.js"
   },
   "dependencies": {

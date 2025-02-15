@@ -2,6 +2,8 @@
   "name": "mevn-stack-boilerplate",
   "version": "1.0.1",
   "scripts": {
+		"clean-all": "(cd server && yarn clean) && (cd admin && yarn clean) && (cd client && yarn clean) && yarn clean",
+		"clean": "rm -rf node_modules .nuxt .vite",
 		"build": "(cd server && yarn install) && (cd admin && yarn install) && (cd client && yarn install) && yarn install",
 		"start": "(cd server; yarn dev;) & (sleep 3; cd admin; yarn dev) & (sleep 6; cd client; yarn dev)"
   },
