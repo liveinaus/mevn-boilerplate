@@ -1,0 +1,53 @@
+version: "3.1"
+services:
+  mongo-db:
+    image: mongo
+    restart: always
+    # ports:
+    #   - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo-root-dev-user
+      MONGO_INITDB_ROOT_PASSWORD: mongo-root-dev-pass
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 28182:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: mongo-admin-lia-dev-user
+      ME_CONFIG_MONGODB_ADMINPASSWORD: mongo-admin-lia-dev-pass
+      ME_CONFIG_MONGODB_URL: mongodb://mongo-root-dev-user:mongo-root-dev-pass@mongo-db:27017/
+      ME_CONFIG_BASICAUTH: false
+    depends_on:
+      - mongo-db
+  mevn-app:
+    image: liveinaus/mevn:latest
+    container_name: mevn-app
+    restart: always
+    ports:
+      - 12001:3001
+      - 12000:3000
+    environment:
+      VITE_API_ENDPOINT: https://mevn-client.liveinaus.com/path/api/v1.0.0/
+      __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS: mevn-client.liveinaus.com
+      ## =====admin======
+      VITE_API_DOMAIN: https://mevn-client.liveinaus.com/path
+      ## =====client======
+      VITE_API_ENDPOINTHOST: https://mevn-client.liveinaus.com/path
+      ## =====server======
+      NODE_ENV: development
+      DB_URL: mongodb://mongo-root-dev-user:mongo-root-dev-pass@mongo-db:27017/admin
+      API_PREFIX: /api/v1.0.0/
+      AUTH_SECRET: KvKiA2mMjxGO25Diiibz
+      API_PORT: 3000
+      CLIENT_URL: http://localhost:3001/
+      ## =====SMTP======
+      NODEMAILER_HOST: YourMailServer
+      NODEMAILER_PORT: 465
+      NODEMAILER_SECURE: true
+      NODEMAILER_SENDERNAME: YourName
+      NODEMAILER_USER: YourMailAddress
+      NODEMAILER_PASS: YourPassword
+    depends_on:
+      - mongo-db
